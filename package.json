@@ -21,6 +21,7 @@
     "@emotion/react": "^11.11.0",
     "@mantine/core": "^6.0.11",
     "@mantine/hooks": "^6.0.11",
+    "@phosphor-icons/react": "^2.0.9",
     "axios": "^1.4.0",
     "eslint-plugin-simple-import-sort": "^9.0.0",
     "react": "^18.2.0",

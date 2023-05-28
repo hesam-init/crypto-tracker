@@ -1,15 +1,36 @@
+/* eslint-disable object-curly-newline */
 import { useCoins } from "@api/getCoins";
-import { Pagination, ScrollArea } from "@mantine/core";
+import Error from "@component/error";
+import { LoadingOverlay, Pagination, ScrollArea } from "@mantine/core";
+import { useEffect, useState } from "react";
 
 import Coin from "./component/coin";
 
 function HomePage() {
-  const { data } = useCoins();
+  const [activePage, setPage] = useState<number>(1);
+
+  const {
+    data,
+    isFetching,
+    isError,
+    isLoadingError,
+    refetch: fetchCoins
+  } = useCoins({
+    activePage
+  });
+
+  useEffect(() => {
+    fetchCoins();
+  }, [activePage, fetchCoins]);
+
+  if (isLoadingError) {
+    return <Error refetch={fetchCoins} />;
+  }
 
   return (
     <div className="flex h-full w-full flex-col overflow-y-auto">
       {/* SECTION: coins list */}
-      <ScrollArea className="w-full">
+      <ScrollArea className="h-full w-full">
         <div className="grid w-full grid-cols-1 gap-4 p-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {data?.map((coin) => (
             <Coin
@@ -21,11 +42,21 @@ function HomePage() {
             />
           ))}
         </div>
+        <LoadingOverlay
+          loaderProps={{ size: "lg", color: "blue", variant: "bars" }}
+          overlayOpacity={0.5}
+          visible={isFetching}
+        />
       </ScrollArea>
 
-      {/* pagination */}
+      {/* SECTION: pagination */}
       <div className="flex items-center justify-center p-3">
-        <Pagination total={10} />
+        <Pagination
+          disabled={isFetching}
+          value={activePage}
+          onChange={setPage}
+          total={100}
+        />
       </div>
     </div>
   );

@@ -3,7 +3,13 @@ import { useQuery } from "react-query";
 
 import { api } from "./config";
 
-export function useCoins() {
+interface CoinParams {
+  activePage: number;
+}
+
+export function useCoins({ activePage }: CoinParams) {
+  console.log(activePage);
+
   return useQuery({
     queryKey: ["coins"],
     queryFn: async (): Promise<Array<Coin>> => {
@@ -11,7 +17,7 @@ export function useCoins() {
         params: {
           vs_currency: "usd",
           per_page: 50,
-          page: 1
+          page: activePage
         }
       });
       return data;
