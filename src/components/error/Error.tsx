@@ -1,7 +1,7 @@
 import { SmileySad } from "@phosphor-icons/react";
 
 interface ErrorProps {
-  refetch: unknown;
+  refetch: () => void;
 }
 
 function Error({ refetch }: ErrorProps) {
@@ -12,8 +12,9 @@ function Error({ refetch }: ErrorProps) {
         <button
           className="rounded-lg bg-red-500 py-2 px-3 text-white"
           type="button"
-          radius="md"
-          onClick={refetch}>
+          onClick={() => {
+            refetch();
+          }}>
           Reload
         </button>
       </div>

@@ -12,8 +12,8 @@ function HomePage() {
   const {
     data,
     isFetching,
-    isError,
     isLoadingError,
+    isRefetchError,
     refetch: fetchCoins
   } = useCoins({
     activePage
@@ -23,14 +23,14 @@ function HomePage() {
     fetchCoins();
   }, [activePage, fetchCoins]);
 
-  if (isLoadingError) {
+  if (isLoadingError || isRefetchError) {
     return <Error refetch={fetchCoins} />;
   }
 
   return (
     <div className="flex h-full w-full flex-col overflow-y-auto">
       {/* SECTION: coins list */}
-      <ScrollArea className="h-full w-full">
+      <ScrollArea type="always" className="h-full w-full">
         <div className="grid w-full grid-cols-1 gap-4 p-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {data?.map((coin) => (
             <Coin

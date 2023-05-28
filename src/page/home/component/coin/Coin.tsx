@@ -1,4 +1,6 @@
 /* eslint-disable object-curly-newline */
+import { LazyLoadImage } from "react-lazy-load-image-component";
+
 interface CoinProps {
   name: string;
   price: number;
@@ -11,7 +13,7 @@ function Coin({ name, price, image, symbol }: CoinProps) {
     <div className="flex flex-col rounded-xl bg-[#1A1C22] p-3">
       <div className="flex items-center gap-2">
         <div>
-          <img className="rounded-full" width={50} src={image} alt="" />
+          <LazyLoadImage className="rounded-full" width={50} src={image} />
         </div>
         <div className="flex flex-col">
           <h1 className="font-bold text-white">{name}</h1>
