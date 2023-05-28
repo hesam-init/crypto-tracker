@@ -1,3 +1,5 @@
+mantine
+MantineProvider
 degit
 Stylelints
 Stylelint

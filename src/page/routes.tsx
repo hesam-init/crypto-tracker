@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
-import HomePage from "./home";
+
 import CoinPage from "./coin";
+import HomePage from "./home";
 
 export const routes = createBrowserRouter([
   {
