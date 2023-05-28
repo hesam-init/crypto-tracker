@@ -1,31 +1,10 @@
-# Vite React Ts Starter Template 🗿
-
-![screenshot](./screenshots/app-preview.png)
-
-> A nice and clean vite react ts starter pack for your project ^\_^
+# Crypto Tracker using Coin Gecko Api
 
 ## 📚 Description
 
-A real chad starter template for your React projects which includes a bunch of useful tools and libraries. For code style and linting it come with eslint and prettier for styling it comes with sass and TailwindCSS ready to use.
-
-## 🐕 Setup
-
-### 1. Step One
-
-Clone this repository using `npx degit github:hesam-init/vite-react-ts-starter-template#starter <project-name>` and run `yarn` or `npm i`or `pnpm i` i prefer to use yarn because it's fast and solid.
-
-### 2. Step Two
-
-{use VsCode to have all power of this template}
-
-- Make sure all of the recommendations extensions are installed.
-- to be sure about extentions, just go to the Extentions tab and search @recommended
-
-![screenshot](./screenshots/extentions.png)
-
-- After you have installed the all recommended extensions you need to reload your vscode just press <kbd>F1</kbd> or <kbd>Ctrl + Shift + P</kbd> to open command palette and search for reload window
-
-After all this steps everything should be work fine and perfectly. enjoy it ಥ_ಥ
+A real chad app for those losers who invest their whole money in crypto market ☠
+i'm just kidding with this app you can track live crypto prices.
+this project use coin gecko api to fetch real time prices.
 
 ## 🧩 Scripts
 
